@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobil_navigation"
+    app:startDestination="@id/loginActivity">
+
+    <activity
+        android:id="@+id/activity_drawer"
+        android:name="com.example.braincommunity.Drawer.MainActivity"
+        android:label="drawer"
+        tools:layout="@layout/app_bar_main" >
+
+        <action
+            android:id="@+id/post_view_action"
+            app:destination="@+id/postViewActivity">
+        </action>
+
+        <action
+            android:id="@+id/create_post_action"
+            app:destination="@+id/createPostActivity">
+        </action>
+
+    </activity>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.braincommunity.Profile.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" >
+
+        <action
+            android:id="@+id/welcome_action"
+            app:destination="@+id/welcomeFragment">
+        </action>
+
+        <action
+            android:id="@+id/forgot_action"
+            app:destination="@+id/forgotPasswordActivity">
+        </action>
+
+
+
+
+    </activity>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.braincommunity.Drawer.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main">
+
+        <action
+            android:id="@+id/base_action"
+            app:destination="@+id/activity_drawer">
+        </action>
+        <action
+            android:id="@+id/myPost_action"
+            app:destination="@+id/myPostActivity">
+        </action>
+
+        <action
+            android:id="@+id/profile_action"
+            app:destination="@+id/profileActivity">
+        </action>
+
+        <action
+            android:id="@+id/register_action"
+            app:destination="@+id/registerActivity">
+        </action>
+
+
+        <action
+            android:id="@+id/login_action"
+            app:destination="@+id/loginActivity">
+        </action>
+
+
+    </activity>
+    <activity
+        android:id="@+id/profileActivity"
+        android:name="com.example.braincommunity.Profile.ProfileActivity"
+        android:label="activity_profile"
+        tools:layout="@layout/activity_profile" >
+
+        <action
+            android:id="@+id/edit_profile_action"
+            app:destination="@+id/editProfileActivity">
+        </action>
+
+    </activity>
+    <activity
+        android:id="@+id/myPostActivity"
+        android:name="com.example.braincommunity.Post.MyPostActivity"
+        android:label="activity_my_post"
+        tools:layout="@layout/activity_my_post" >
+
+        <action
+            android:id="@+id/post_view_action"
+            app:destination="@+id/postViewActivity">
+        </action>
+
+        <action
+            android:id="@+id/create_post_action"
+            app:destination="@+id/createPostActivity">
+        </action>
+
+    </activity>
+    <activity
+        android:id="@+id/editProfileActivity"
+        android:name="com.example.braincommunity.Profile.EditProfileActivity"
+        android:label="activity_edit_profile"
+        tools:layout="@layout/activity_edit_profile" >
+
+        <action
+            android:id="@+id/profile_action"
+            app:destination="@+id/profileActivity">
+        </action>
+
+    </activity>
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.braincommunity.Profile.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" >
+
+        <action
+            android:id="@+id/login_action"
+            app:destination="@+id/loginActivity">
+        </action>
+
+
+    </activity>
+    <activity
+        android:id="@+id/postViewActivity"
+        android:name="com.example.braincommunity.Post.PostViewActivity"
+        android:label="PostViewActivity"
+        tools:layout="@layout/activity_post_view"/>
+    <activity
+        android:id="@+id/createPostActivity"
+        android:name="com.example.braincommunity.Post.CreatePostActivity"
+        android:label="activity_create_post"
+        tools:layout="@layout/activity_create_post" >
+
+        <action
+            android:id="@+id/view_post_action"
+            app:destination="@+id/postViewActivity">
+        </action>
+
+    </activity>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.braincommunity.Profile.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+
+        <action
+            android:id="@+id/action_welcomeFragment_to_activity_drawer"
+            app:destination="@id/activity_drawer" />
+    </fragment>
+    <activity
+        android:id="@+id/forgotPasswordActivity"
+        android:name="com.example.braincommunity.Profile.ForgotPasswordActivity"
+        android:label="activity_forgot_password"
+        tools:layout="@layout/activity_forgot_password" >
+
+
+        <action
+            android:id="@+id/return_action"
+            app:destination="@+id/loginActivity">
+        </action>
+
+    </activity>
+
+
+</navigation>
