@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity
         navigationView = findViewById(R.id.nav_view);
         postRecyclerView    = findViewById(R.id.postMainRecyclerView);
 
-
-
-
         postRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL, false));
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -126,8 +123,6 @@ public class MainActivity extends AppCompatActivity
 
 
         postRecyclerView.setAdapter(new PostRecyclerViewAdapter(getApplicationContext(),post));
-
-
     }
 
     @Override

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.braincommunity.R;
 
@@ -40,8 +41,20 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
 
         Map<String, String> currencyPost = post.get(i);
 
-        viewHolder.process(currencyPost.get("title"),currencyPost.get("description"),Integer.parseInt(Objects.requireNonNull(currencyPost.get("status"))));
+        final String title = currencyPost.get("title");
 
+        viewHolder.process(title, currencyPost.get("description"), Integer.parseInt(Objects.requireNonNull(currencyPost.get("status"))));
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(context,PostViewActivity.class);
+                    intent.putExtra("title", title);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                Toast.makeText(context, title, Toast.LENGTH_SHORT).show();
+        }
+        });
     }
 
     @Override
@@ -51,32 +64,22 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView titleTextView, descriptionTectView;
+        TextView titleTextView, descriptionTextView;
         ImageView indicatorImageView;
         ConstraintLayout layout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             titleTextView       = itemView.findViewById(R.id.titleItemPostTextView);
-            descriptionTectView = itemView.findViewById(R.id.descriptionItemPostTextView);
+            descriptionTextView = itemView.findViewById(R.id.descriptionItemPostTextView);
             indicatorImageView  = itemView.findViewById(R.id.indicatorItemPostImageView);
             layout              = itemView.findViewById(R.id.layoutItemPostConstraintLayout);
-
-            layout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context,PostViewActivity.class);
-                    intent.putExtra("title",titleTextView.getText().toString());
-                    context.startActivity(intent);
-
-                }
-            });
         }
 
         public void process(String title, String description, int status){
 
             titleTextView.setText(title);
-            descriptionTectView.setText(description);
+            descriptionTextView.setText(description);
 
             if (status == 0) indicatorImageView.setImageResource(R.drawable.ic_indicator_red);
             else indicatorImageView.setImageResource(R.drawable.ic_indicator_green);
