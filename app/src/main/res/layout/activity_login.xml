@@ -7,6 +7,22 @@
     android:background="@color/colorBackground">
 
 
+    <Button
+        android:id="@+id/registerButton"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@color/colorBackground"
+        android:gravity="right|center_horizontal"
+        android:text="Registrarme"
+        android:textColor="@color/colorAccent"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forgotPasswordLoginButton" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
